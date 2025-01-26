@@ -45,7 +45,7 @@ var x = 10;
                 }
 
                 console.log(x); // Output: Uncaught ReferenceError: x is not defined
-    // 'Var' can be re-declared and updated
+    // 'var' can be re-declared and updated
         // variables declared with 'var' are function-scoped
         // only accessible within the function that they are declared or within functions nested within that function
             // Example of declaring and updating a 'var' variable
@@ -72,7 +72,7 @@ var x = 10;
             doSomething();
         // Note- re-declaring does not result in an error, but can lead to confusing or unexpected behavior
         // Best practice- avoid re-declaring variables within the same scope
-    // 'Let' can be updated but not re-declared
+    // 'let' can be updated but not re-declared
         // variables created with the 'let' keyword can be updated or reassigned but cannot be re-declared in the same block of code
             // Example of updating a variable declared with 'let'
                 let x = 5;
@@ -82,7 +82,7 @@ var x = 10;
                 let x = 5;
                 let x = 10; // This will throw an error
         // Best practice- recommended to use 'let' instead of 'var' when declaring variables in modern JavaScript as 'let' provides more precise control over variable declarations and can help prevent unintended behavior in your code
-    // 'Const' can neither be updated nor re-declared
+    // 'const' can neither be updated nor re-declared
         // 'const' keyword is used to declare a constant variable
         // constant variables are variables that cannot be reassigned or re-declared
             // Example of attempting to update and re-declare a 'const' variable
@@ -99,4 +99,33 @@ var x = 10;
             // Example
                 const obj = {};
                 obj.name = "Thomas";
+    // How variable keywords 'var' 'let' 'const' are initialized
+        // variables declared with 'var' are initialized with the value of 'undefined' when created
+            // Example
+                var x;
+                console.log(x) // Output: Undefined
+        // variables declared with 'let' and 'const' are not initialized with any value
+        // trying to access a declared 'let' or 'const' variable with no assigned value resuts in 'Reference Error' 
+            // Example
+                let y;
+                console.log(y); // Output: Uncaught ReferenceError: y is not defined
                 
+                const z;
+                console.log(z); // Output: Uncaught SyntaxError: Missing initializer in const declaration
+    // 'const' must be initialized during declaration unlike let and var
+         // 'const' variables must have a value specified when they are declared
+            // Example
+                const PI; // This will throw an error because PI is not initialized
+    
+                const PI = 3.14; // This is allowed
+        // 'var' and 'let' variables can be reassigned and do not have to be initialized during declaration
+            // Example
+                let x;
+                x = 10;
+                x = "hello";
+                
+                var y;
+                y = 20;
+                y = false;
+// Best Practice- use 'const' whenever possible and only use 'let' or 'var' when reassignment is necessary
+// this helps to prevent accidental reassignment and makes the code easier to understand
