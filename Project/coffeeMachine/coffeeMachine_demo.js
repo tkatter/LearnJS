@@ -52,3 +52,5 @@ milkChoc.price(4);
 doughnut.price(2.5);
 pancake.price(3.2);
 
+const name = 'Jimmy'
+console.log(name)
