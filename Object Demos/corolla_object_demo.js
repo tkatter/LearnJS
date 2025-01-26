@@ -11,4 +11,9 @@ const car = {
  }
 };
 
-car.drive()
+// to call the 'drive' method use the following syntax
+car.drive();
+
+// to access the 'model' property use the following syntax
+ console.log(car.model);
+ console.log(car['model']);

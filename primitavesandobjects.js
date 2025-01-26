@@ -41,3 +41,15 @@ console.log(SSBBNNU)
     // the 'car' object also has a method called 'drive', which is a function that can be called to make the car drive
         // to call the 'drive' method use the following syntax
             car.drive(); // Output: The car is driving now
+    // access properties of an object using dot or bracket notation
+        // to access the 'model' property use the following syntax
+            console.log(car.model); // dot notation
+            console.log(car['model']); // bracket notation
+    // you can add, modify, or delete properties of an object using the same dot or bracket notation (this is also an example of modifying the properties of an object assigned to a 'const' variable)
+        // Add a property like this:
+            car.owner = 'Lexus';
+        // Modify a property like this:
+            car.color = 'red';
+        // Delete a property like this:
+            delete car.owner;
+
