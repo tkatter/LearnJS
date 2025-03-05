@@ -5,3 +5,5 @@ const x = 23;
 if (x === 23) console.log(23);
 
 const calcAge = birthYear => 2037 - birthYear;
+
+// configured user-snippet to make "cl" automatically print console.log();
