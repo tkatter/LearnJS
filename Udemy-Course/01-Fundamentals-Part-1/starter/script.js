@@ -23,7 +23,7 @@ let camelCase = 'two words with camelCase.';
 let camelCaseNaming = 'three words with camelCase.';
 
 // Can not start variable name with number
-let 3years = 3;
+// let 3years = 3;
 
 // Can only contain numbers, letters, underscores, and dollar signs
 // Can not name variables with reserved JavaScript keywords i.e. new, function
