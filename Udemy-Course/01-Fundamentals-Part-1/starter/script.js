@@ -76,3 +76,6 @@ console.log(typeof year);
 // NULL
 console.log(typeof null);
 // console prints "object" - this is a bug because null is not an object.
+
+// LET, CONST AND VAR
+
