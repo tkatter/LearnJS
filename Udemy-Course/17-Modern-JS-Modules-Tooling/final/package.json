@@ -10,9 +10,10 @@
   "author": "Jonas",
   "license": "ISC",
   "dependencies": {
+    "17-modern-js-modules-tooling": "file:",
     "core-js": "^3.6.5",
     "leaflet": "^1.6.0",
-    "lodash-es": "^4.17.15",
+    "lodash-es": "^4.17.21",
     "regenerator-runtime": "^0.13.7"
   },
   "devDependencies": {
