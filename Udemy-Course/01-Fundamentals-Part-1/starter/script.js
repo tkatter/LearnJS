@@ -45,6 +45,7 @@ let job2 = 'teacher';
 console.log(myFirstJob);
 */
 
+/*
 // DATA TYPES
 
 // BOOLEANS
@@ -76,6 +77,8 @@ console.log(typeof year);
 // NULL
 console.log(typeof null);
 // console prints "object" - this is a bug because null is not an object.
+*/
 
 // LET, CONST AND VAR
-
+let age = 30;
+age = 31;
