@@ -1,3 +1,4 @@
+/*
 let js = 'amazing';
 console.log(40 + 8 + 23 - 10);
 
@@ -42,3 +43,36 @@ let job1 = 'programmer';
 let job2 = 'teacher';
 
 console.log(myFirstJob);
+*/
+
+// DATA TYPES
+
+// BOOLEANS
+let javascriptIsFun = true;
+console.log(javascriptIsFun);
+
+// Typeof will show the type of a value
+// console.log(typeof true);
+console.log(typeof javascriptIsFun);
+// console.log(typeof 23);
+// console.log(typeof 'Thomas');
+
+// Dynamic typing in action: assigning javascriptIsFun to a different value of a different type
+javascriptIsFun = 'YES!';
+console.log(javascriptIsFun);
+console.log(typeof javascriptIsFun);
+// NOTE that when redefining a variable that has already been declared - do not use "let," simply type the variable's name and declare its new value
+
+// UNDEFINED
+let year;
+console.log(year);
+console.log(typeof year);
+
+// Reassigning the previously UNDEFINED variable
+year = 2025
+console.log(year);
+console.log(typeof year);
+
+// NULL
+console.log(typeof null);
+// console prints "object" - this is a bug because null is not an object.
