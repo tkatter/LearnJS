@@ -79,6 +79,56 @@ console.log(typeof null);
 // console prints "object" - this is a bug because null is not an object.
 */
 
+/*
 // LET, CONST AND VAR
 let age = 30;
 age = 31;
+*/
+
+// BASIC OPERATORS
+
+// MATHEMATIC OPERATORS
+/*
+let currentYear = 2025;
+const ageThomas = currentYear - 2003;
+const ageAndrew = currentYear - 2006;
+console.log(ageThomas, ageAndrew);
+
+console.log(ageThomas * 2, ageThomas / 2, ageAndrew / 10, 2 ** 3);
+// 2 ** 3 means 2 to the power of 3
+console.log(
+  'bianary table for ip addresses/subnet masks:',
+  2 ** 7,
+  2 ** 6,
+  2 ** 5,
+  2 ** 4,
+  2 ** 3,
+  2 ** 2,
+  2 ** 1,
+  2 ** 0
+);
+
+const firstName = 'Thomas';
+const lastName = 'Katter';
+console.log(firstName + ' ' + lastName);
+console.log('Age: ' + ageThomas);
+console.log(typeof ageAndrew);
+*/
+
+// ASSIGNMENT OPERATORS
+let x = 10 + 5; // 15
+console.log(x);
+// here the "=" is an operator.
+// this line actually has two operators "=" & "+"
+// however, "x" is assigned the value of 15 because the ASSIGNMENT operator comes BEFORE the MATHEMATICAL operator
+x += 10; // x = x + 10
+console.log(x);
+
+x *= 4;
+console.log(x);
+
+x /= 2;
+console.log(x);
+
+x++;
+console.log(x);
