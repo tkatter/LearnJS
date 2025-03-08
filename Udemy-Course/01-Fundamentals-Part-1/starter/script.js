@@ -88,7 +88,7 @@ age = 31;
 // BASIC OPERATORS
 
 // MATHEMATIC OPERATORS
-/*
+
 let currentYear = 2025;
 const ageThomas = currentYear - 2003;
 const ageAndrew = currentYear - 2006;
@@ -113,9 +113,9 @@ const lastName = 'Katter';
 console.log(firstName + ' ' + lastName);
 console.log('Age: ' + ageThomas);
 console.log(typeof ageAndrew);
-*/
 
 // ASSIGNMENT OPERATORS
+/*
 let x = 10 + 5; // 15
 console.log(x);
 // here the "=" is an operator.
@@ -132,3 +132,24 @@ console.log(x);
 
 x++;
 console.log(x);
+
+x--;
+console.log(x);
+x--;
+console.log(x);
+*/
+
+// COMPARISION OPERATORS
+// >, <, >=, <=
+console.log(ageThomas > ageAndrew); // greater than
+console.log(ageThomas < ageAndrew); // less than
+console.log(ageThomas >= ageAndrew); // greater than or equal to
+console.log(ageThomas <= ageAndrew); // less than or equal to
+
+console.log(ageAndrew >= 18);
+console.log(ageAndrew >= 21);
+console.log(ageThomas >= 21);
+
+const isFullAge = ageAndrew >= 18;
+
+console.log(currentYear - 2003 > currentYear - 2006);
