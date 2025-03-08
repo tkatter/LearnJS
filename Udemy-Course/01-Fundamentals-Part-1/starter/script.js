@@ -196,3 +196,80 @@ console.log(BMIMark, BMIJohn, markHigherBMI);
 */
 
 // STRINGS AND TEMPLATE LITERALS
+/*
+const firstName = 'Thomas';
+const job = 'Carpenter';
+const birthYear = 2003;
+const year = 2025;
+
+// const thomas =
+//   "I'm " + firstName + ', a ' + (year - birthYear) + ' year old ' + job + '.';
+// console.log(thomas);
+
+// printing the same string above ^^ with a template string - basically lets me insert variables directly into the string
+const thomasNew = `I'm ${firstName}, a ${year - birthYear} year old ${job}.`;
+console.log(thomasNew);
+
+// can use backtiks for all strings - recommended to start using backtiks everytime for all strings
+console.log(`Just a regular string`);
+
+console.log(
+  'String with \n\
+multiple \n\
+lines'
+);
+
+// using template literals to create multi-line strings - just need to hit <ENTER> instead of using \n\
+console.log(`String
+multiple
+lines`);
+*/
+
+// TAKING DECISIONS: if/else Statements
+/*
+// this is called an "if/else control structure"
+if(){
+
+} else {
+  
+}
+*/
+
+/*
+const age = 16;
+
+if (age >= 16) {
+  console.log(`Sarah can start driving license`);
+} else {
+  const yearsLeft = 16 - age;
+  console.log(`Sarah must wait ${yearsLeft} more year(s).`);
+}
+
+const birthYear = 2003;
+
+let century;
+if (birthYear <= 2000) {
+  century = `20th century`;
+} else {
+  century = `21st century`;
+}
+console.log(century);
+*/
+
+// CODING CHALLENGE 2
+/*
+const massMark = 78;
+const heightMark = 1.69;
+const massJohn = 92;
+const heightJohn = 1.95;
+
+const BMIMark = massMark / (heightMark * heightMark);
+const BMIJohn = massJohn / (heightJohn * heightJohn);
+console.log(BMIMark, BMIJohn);
+
+if(BMIMark > BMIJohn){
+  console.log(`Mark's BMI (${BMIMark}) is higher than John's (${BMIJohn})!`);
+} else {
+  console.log(`John's BMI (${BMIJohn}) is higher than Mark's (${BMIMark})!`);
+}
+*/
