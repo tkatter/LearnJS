@@ -194,3 +194,5 @@ markHigherBMI = BMIMark > BMIJohn;
 
 console.log(BMIMark, BMIJohn, markHigherBMI);
 */
+
+// STRINGS AND TEMPLATE LITERALS
