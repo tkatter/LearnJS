@@ -156,9 +156,41 @@ console.log(currentYear - 2003 > currentYear - 2006);
 */
 
 // OPERATOR PRECEDENCE
-
+/*
 let currentYear = 2025;
 const ageThomas = currentYear - 2003;
 const ageAndrew = currentYear - 2006;
 
 console.log(currentYear - 2003 > currentYear - 2006);
+
+let x, y; // declaring 2 empty values at the same time
+x = y = 25 - 10 - 5; // subtraction will occur first from left to right leaving us with x = y = 10; then the operators are evaluated right to left making y = 10 and leaving us with x = 10
+console.log(x, y);
+
+const averageAge = (ageThomas + ageAndrew) / 2;
+console.log(ageThomas, ageAndrew, 'Average age: ' + averageAge);
+*/
+
+// CODING CHALLENGE 1
+/*
+let massMark = 78;
+let heightMark = 1.69;
+let massJohn = 92;
+let heightJohn = 1.95;
+
+let BMIMark = massMark / (heightMark * heightMark);
+let BMIJohn = massJohn / (heightJohn * heightJohn);
+
+let markHigherBMI = BMIMark > BMIJohn;
+console.log(BMIMark, BMIJohn, markHigherBMI);
+
+massMark = 95;
+heightMark = 1.88;
+massJohn = 85;
+heightJohn = 1.76;
+BMIMark = massMark / (heightMark * heightMark);
+BMIJohn = massJohn / (heightJohn * heightJohn);
+markHigherBMI = BMIMark > BMIJohn;
+
+console.log(BMIMark, BMIJohn, markHigherBMI);
+*/
