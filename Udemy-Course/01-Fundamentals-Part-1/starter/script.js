@@ -86,7 +86,7 @@ age = 31;
 */
 
 // BASIC OPERATORS
-
+/*
 // MATHEMATIC OPERATORS
 
 let currentYear = 2025;
@@ -115,7 +115,7 @@ console.log('Age: ' + ageThomas);
 console.log(typeof ageAndrew);
 
 // ASSIGNMENT OPERATORS
-/*
+
 let x = 10 + 5; // 15
 console.log(x);
 // here the "=" is an operator.
@@ -137,7 +137,7 @@ x--;
 console.log(x);
 x--;
 console.log(x);
-*/
+
 
 // COMPARISION OPERATORS
 // >, <, >=, <=
@@ -151,5 +151,14 @@ console.log(ageAndrew >= 21);
 console.log(ageThomas >= 21);
 
 const isFullAge = ageAndrew >= 18;
+
+console.log(currentYear - 2003 > currentYear - 2006);
+*/
+
+// OPERATOR PRECEDENCE
+
+let currentYear = 2025;
+const ageThomas = currentYear - 2003;
+const ageAndrew = currentYear - 2006;
 
 console.log(currentYear - 2003 > currentYear - 2006);
