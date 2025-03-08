@@ -273,3 +273,33 @@ if(BMIMark > BMIJohn){
   console.log(`John's BMI (${BMIJohn}) is higher than Mark's (${BMIMark})!`);
 }
 */
+
+// TYPE CONVERSION AND COERCION
+/*
+// type conversion is when we manually convert from one type to another
+// type coercion is when JavaScript automatically converts types behind the scenes for us
+
+// TYPE CONVERSION
+const inputYear = `1991`;
+console.log(inputYear + 18); // since inputYear is a string it simply just adds 18 to the end of the inputYear string printing "199118"
+console.log(Number(inputYear) + 18); // here we manually converted inputYear to a number type using the Number() function and are now able to add 18 to it like expected
+
+console.log(Number('Thomas')); // output: NaN - meaning Not a Number
+
+console.log(String(23), 23);
+
+// TYPE COERCION
+console.log(`I am ` + 23 + ` years old.`); // here we have a String + Number + String and JavaScript automatically converts the Number to a String
+console.log(`I am ` + String(23) + ` years old.`); // manual way to make this work if JavaScript did not automatically convert the Number to a String
+console.log('23' - '10' - 3); // JavaScript automatically converted Strings to Numbers
+console.log('23' + '10' + 3); //  JavaScript automatically converted the Number to a String and used the + operator to concatenate the strings together; output: 23103
+console.log('23' * '2'); // JavaScript automatically converted Strings to Numbers because that is the only way the multiplier operator can work
+
+// GUESS THE OUTPUT!
+let n = '1' + 1; // concatenates the Number 1 to the String 1 - giving us n = 11
+n = n - 1; // subtracts the Number 1 from the value of n - giving us n = 10 because JavaScript automatically converted the value of n to a Number when it saw that we wanted to subtract from it
+console.log(n); // output: 10
+
+console.log(2 + 3 + 4 + '5'); // output: 95 because JavaScript adds the Numbers first (2+3+4 = 9) and converts 9 to a String and concatenates the String 9 and 5 together
+console.log('10' - '4' - '3' - 2 + '5'); // output: 15 because JavaScript converts the Strings (10, 4, and 3) to Numbers and subtracts the Number 2 giving us a value of 1, then JavaScript converts 1 to a String and concatenates the Strings 1 and 5 to give us an output of 15
+*/
