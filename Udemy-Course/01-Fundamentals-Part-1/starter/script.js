@@ -305,3 +305,36 @@ console.log('10' - '4' - '3' - 2 + '5'); // output: 15 because JavaScript conver
 */
 
 // TRUTHY AND FALSY VALUES
+/*
+//  5 falsy values:
+// 0, '', undefined, null, NaN
+// these values are not false initially, but will become false when converted to a Boolean value
+
+// truthy values:
+// any number that is not 0 or any string that is not empty
+
+console.log(Boolean(0));
+console.log(Boolean('Thomas'));
+console.log(Boolean(''));
+console.log(Boolean(undefined));
+console.log(Boolean({}));
+console.log(Boolean(NaN));
+
+// in practice, Boolean conversion is always implicit (automatic by JavaScript)
+
+const money = 100;
+if (money) {
+  console.log(`Don't spend it all in one place ;)`);
+} else {
+  console.log(`You should get a job!`);
+}
+
+let height = 123;
+if (height) {
+  console.log(`YAY! Height is defined.`);
+} else {
+  console.log(`Height is UNDEFINED.`);
+}
+*/
+
+// EQUALITY OPERATORS
