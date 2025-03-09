@@ -404,3 +404,45 @@ if (scoreDolphins > scoreKoalas) {
 */
 
 // THE SWITCH STATEMENT
+const day = `sunday`;
+
+switch (day) {
+  case `monday`: // day === monday
+    console.log(`Go to work.`);
+    console.log(`First day of the workweek.`);
+    break;
+  case `tuesday`:
+    console.log(`Go to work 2nd day of the week.`);
+    break;
+  case `wednesday`:
+  case `thursday`:
+    console.log(`Write code examples`);
+    break;
+  case `friday`:
+    console.log(`record videos`);
+    break;
+  case `saturday`:
+  case `sunday`:
+    console.log(`Enjoy the weekend`);
+    break;
+  default:
+    console.log(`Not a valid day.`);
+}
+
+// if (day === `monday`) {
+//   console.log(`Go to work!`);
+// } else if (day === `tuesday`) {
+//   console.log(`Go to work 2nd day of the week.`);
+// } else if (day === `wednesday`) {
+//   console.log(`Write code examples`);
+// } else if (day === `thursday`) {
+//   console.log(`Write code examples`);
+// } else if (day === `friday`) {
+//   console.log(`record videos`);
+// } else if (day === `saturday`) {
+//   console.log(`have a good weekend`);
+// } else if (day === `sunday`) {
+//   console.log(`have a good weekend`);
+// } else {
+//   console.log(`not a vallid day`);
+// }
