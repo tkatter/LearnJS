@@ -338,3 +338,69 @@ if (height) {
 */
 
 // EQUALITY OPERATORS
+/*
+// === is Strict Equality
+// does not perform type coercion
+// === returns a Boolean value of true as long as the values on both sides of the operator are the exact same
+console.log(18 === 18); // output: true
+console.log('18' === 18); // output: false because does not perform type coercion
+
+// is Loose Equality
+// performs type coercion
+console.log(18 == 18); // output: true
+console.log('18' == 18); // output: true
+
+const age = 18;
+if (age === 18) console.log(`You are an adult! (strict)`);
+if (age == 18) console.log(`You are an adult! (loose)`);
+
+const favNumber = Number(prompt(`What's your favorite number?`));
+console.log(favNumber);
+console.log(typeof favNumber);
+
+if (favNumber === 23) {
+  console.log(`23 is a great number!`);
+} else if (favNumber === 7) {
+  console.log(`7 is a cool number!`);
+} else if (favNumber === 9) {
+  console.log(`9 is a cool number!`);
+} else {
+  console.log(`Number is not 23 or 7 or 9.`);
+}
+
+if (favNumber !== 23) {
+  console.log(`Why not 23?`);
+}
+*/
+
+// LOGICAL OPERATORS
+/*
+const hasDriversLicense = true; // variable A
+const hasGoodVision = true; // variable B
+const isTired = true; // variable C
+// console.log(hasDriversLicense && hasGoodVision);
+// console.log(hasDriversLicense || hasGoodVision);
+// console.log(!hasDriversLicense);
+
+if (hasDriversLicense && hasGoodVision && !isTired) {
+  console.log(`Sarah is able to drive!`);
+} else {
+  console.log(`Sarah is not able to drive.`);
+}
+*/
+
+// CODING CHALLENGE 3
+/*
+const scoreDolphins = (96 + 108 + 89) / 3;
+const scoreKoalas = (88 + 91 + 110) / 3;
+
+if (scoreDolphins > scoreKoalas) {
+  console.log(`Dolphins win the trophy`);
+} else if (scoreKoalas > scoreDolphins) {
+  console.log(`Koalas win the trophy`);
+} else if (scoreDolphins === scoreKoalas) {
+  console.log(`Both win the trophy`);
+}
+*/
+
+// THE SWITCH STATEMENT
