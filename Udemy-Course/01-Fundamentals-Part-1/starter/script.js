@@ -303,3 +303,5 @@ console.log(n); // output: 10
 console.log(2 + 3 + 4 + '5'); // output: 95 because JavaScript adds the Numbers first (2+3+4 = 9) and converts 9 to a String and concatenates the String 9 and 5 together
 console.log('10' - '4' - '3' - 2 + '5'); // output: 15 because JavaScript converts the Strings (10, 4, and 3) to Numbers and subtracts the Number 2 giving us a value of 1, then JavaScript converts 1 to a String and concatenates the Strings 1 and 5 to give us an output of 15
 */
+
+// TRUTHY AND FALSY VALUES
