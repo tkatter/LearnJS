@@ -66,3 +66,26 @@ console.log(age3);
 // function expressions are nice because of the structure they provide; this way I will need to declare all of my functions at the beginning of my code before I can invoke them later.
 // Jonas likes to store all of his values and expressions in variables for the structure
 */
+
+// ARROW FUNCTIONS
+// added in ES6 - third type of function
+
+// arrow function
+birthYear => 2025 - birthYear;
+
+// arrow function stored in a variable
+const calcAge4 = birthYear => 2025 - birthYear;
+const age4 = calcAge4(2003);
+console.log(age4);
+
+// arrow function with more than one parameter and more than one line of code to be returned
+const yearsUntilRetirement = (birthYear, firstName) => {
+  const age = 2025 - birthYear;
+  const retirement = 65 - age;
+  // return retirement;
+  return `${firstName} is ${age} years old now and will retire in ${retirement} years.`;
+};
+
+console.log(yearsUntilRetirement(2003, 'Thomas'));
+console.log(yearsUntilRetirement(2006, 'Andrew'));
+console.log(yearsUntilRetirement(2007, 'Grace'));
