@@ -404,8 +404,10 @@ if (scoreDolphins > scoreKoalas) {
 */
 
 // THE SWITCH STATEMENT
-const day = `sunday`;
+const day = `friday`;
 
+// this switch statement looks cleaner and more readable
+// however, the switch statement is beginning to be used less and less
 switch (day) {
   case `monday`: // day === monday
     console.log(`Go to work.`);
@@ -429,20 +431,17 @@ switch (day) {
     console.log(`Not a valid day.`);
 }
 
+// this if/else block produces the same results as the switch statement above.
 // if (day === `monday`) {
 //   console.log(`Go to work!`);
 // } else if (day === `tuesday`) {
 //   console.log(`Go to work 2nd day of the week.`);
-// } else if (day === `wednesday`) {
-//   console.log(`Write code examples`);
-// } else if (day === `thursday`) {
+// } else if (day === `wednesday` || day === `thursday`) {
 //   console.log(`Write code examples`);
 // } else if (day === `friday`) {
 //   console.log(`record videos`);
-// } else if (day === `saturday`) {
-//   console.log(`have a good weekend`);
-// } else if (day === `sunday`) {
+// } else if (day === `saturday` || day === `sunday`) {
 //   console.log(`have a good weekend`);
 // } else {
-//   console.log(`not a vallid day`);
+//   console.log(`not a valid day`);
 // }
