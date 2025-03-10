@@ -507,3 +507,4 @@ console.log(
 */
 
 // JAVASCRIPT RELEASES: ES5, ES6+ AND ESNEXT
+// javascript is backwards compatible, NOT forward compatible
