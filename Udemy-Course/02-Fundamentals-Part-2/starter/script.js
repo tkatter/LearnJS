@@ -68,6 +68,7 @@ console.log(age3);
 */
 
 // ARROW FUNCTIONS
+/*
 // added in ES6 - third type of function
 
 // arrow function
@@ -89,3 +90,18 @@ const yearsUntilRetirement = (birthYear, firstName) => {
 console.log(yearsUntilRetirement(2003, 'Thomas'));
 console.log(yearsUntilRetirement(2006, 'Andrew'));
 console.log(yearsUntilRetirement(2007, 'Grace'));
+*/
+
+// FUNCTIONS CALLING OTHER FUNCTIONS
+
+function cutFruitPieces(fruit) {
+  return fruit * 6;
+}
+function fruitProcessor(apples, oranges) {
+  const applePieces = cutFruitPieces(apples);
+  const orangePieces = cutFruitPieces(oranges);
+
+  const juice = `Juice with ${applePieces} pieces of apple and ${orangePieces} pieces of orange.`;
+  return juice;
+}
+console.log(fruitProcessor(2, 3));
