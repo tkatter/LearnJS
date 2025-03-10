@@ -10,7 +10,7 @@ if (hasDriversLicense) console.log(`I can drive!`);
 */
 
 // FUNCTIONS
-/* */
+/*
 // making a function for when we may need to use certain lines of code multiple times within our code
 function logger() {
   console.log('My name is Thomas.');
@@ -34,3 +34,6 @@ const orangeJuice = fruitProcessor(0, 5);
 console.log(orangeJuice);
 const appleOrangeJuice = fruitProcessor(3, 2);
 console.log(appleOrangeJuice);
+*/
+
+// FUNCTION DECLARATIONS VS EXPRESSIONS
