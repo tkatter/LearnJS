@@ -404,6 +404,7 @@ if (scoreDolphins > scoreKoalas) {
 */
 
 // THE SWITCH STATEMENT
+/*
 const day = `friday`;
 
 // this switch statement looks cleaner and more readable
@@ -445,3 +446,28 @@ switch (day) {
 // } else {
 //   console.log(`not a valid day`);
 // }
+*/
+
+// STATEMENTS AND EXPRESSIONS
+/*
+// an expression is a piece of code that produces a value
+// EXAMPLES:
+3 + 4;
+1994;
+true && false && !false;
+
+// statements are bigger pieces of code which are executed and do not produce a value on itself
+// EXAMPLES
+// the if/else statement performs an action but does not produce a value as a result
+if (23 > 10) {
+  const str = `23 is bigger`;
+}
+
+// expressions produce values
+// statements are like full-sentences that translate our actions
+// basically things that end with a semicolon is a statement
+// template literals can only have expressions inserted, NOT statements
+console.log(`I'm ${2025 - 2003} years old.`);
+*/
+
+// THE CONDITIONAL (TERNARY) OPERATOR
