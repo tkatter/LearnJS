@@ -37,7 +37,7 @@ console.log(appleOrangeJuice);
 */
 
 // FUNCTION DECLARATIONS VS EXPRESSIONS
-
+/*
 // parameters are the "placeholders" in the function declaration and arguements are the actual value we specify for that parameter
 
 // function declaration
@@ -53,3 +53,16 @@ const calcAge2 = function (birthYear) {
 const age2 = calcAge2(2003);
 
 console.log(age1, age2);
+
+// function declarations can be called before being defined; function expressions CANNOT
+// EXAMPLE:
+const age3 = calcAge3(2003);
+function calcAge3(birthYear) {
+  return 2025 - birthYear;
+}
+console.log(age3);
+
+// which type of function should I use?
+// function expressions are nice because of the structure they provide; this way I will need to declare all of my functions at the beginning of my code before I can invoke them later.
+// Jonas likes to store all of his values and expressions in variables for the structure
+*/
