@@ -496,3 +496,14 @@ console.log(`I like to drink ${age >= 21 ? `beer!` : `water...`}`);
 */
 
 // CODING CHALLENGE 4
+/*
+const bill = 300;
+const tip = 50 <= bill <= 300 ? Number(bill) * 0.15 : Number(bill) * 0.2;
+console.log(
+  `The bill was ${bill}, the tip was ${tip}, and the total value ${Number(
+    bill + tip
+  )}`
+);
+*/
+
+// JAVASCRIPT RELEASES: ES5, ES6+ AND ESNEXT
