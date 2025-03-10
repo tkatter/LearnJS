@@ -37,3 +37,19 @@ console.log(appleOrangeJuice);
 */
 
 // FUNCTION DECLARATIONS VS EXPRESSIONS
+
+// parameters are the "placeholders" in the function declaration and arguements are the actual value we specify for that parameter
+
+// function declaration
+function calcAge1(birthYear) {
+  return 2025 - birthYear;
+}
+const age1 = calcAge1(2003);
+
+// function expression
+const calcAge2 = function (birthYear) {
+  return 2025 - birthYear;
+};
+const age2 = calcAge2(2003);
+
+console.log(age1, age2);
