@@ -471,3 +471,28 @@ console.log(`I'm ${2025 - 2003} years old.`);
 */
 
 // THE CONDITIONAL (TERNARY) OPERATOR
+/*
+// basically writing an if/else statement in one line of code
+const age = 20;
+// age >= 18 // condition
+//   ? console.log(`I like to drink beer!`) // if
+//   : console.log(`I like to drink water...`); // else
+
+// const drink = age >= 21 ? `beer!` : `water...`;
+// console.log(`I like to drink ${drink}`);
+
+// how we would do the same thing with an if/else statement... much less clean-looking or easy to read
+// let drink2;
+// if (age >= 21) {
+//   drink2 = 'wine';
+// } else {
+//   drink2 = 'water';
+// }
+// console.log(drink2);
+
+// using the ternary operator, we can have conditionals inside of a template literal (can't have if/else statements inside of a template literal)
+console.log(`I like to drink ${age >= 21 ? `beer!` : `water...`}`);
+// the ternary operator is not a replacement for if/else statements; however, it is good when needing to take a quick decision
+*/
+
+// CODING CHALLENGE 4
