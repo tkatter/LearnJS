@@ -185,6 +185,7 @@ checkWinner(scoreDolphins, scoreKoalas);
 */
 
 // INTRODUCTION TO ARRAYS
+/*
 // two most important data structures in JavaScript are arrays and objects
 const friend1 = 'Grace';
 const friend2 = 'Chad';
@@ -232,3 +233,42 @@ const ages = [
   calcAge2(years[years.length - 1]),
 ];
 console.log(ages);
+*/
+
+// BASIC ARRAY OPERATIONS (METHODS)
+/*
+const friends = ['Grace', 'Chad', 'Zach'];
+
+// ADD ELEMENTS
+// use push to add an element to an array
+const newLength = friends.push('Jay'); // push is a method but it is technically a function attatched to an array 'Jay' is an argument to the push function - the result of the push function is the length of the array
+console.log(friends);
+console.log(newLength);
+// use unshift to add an element to the beginning of an array
+friends.unshift('John');
+console.log(friends);
+
+// REMOVE ELEMENTS
+const popped = friends.pop(); // removes last element - the pop function results the removed element
+console.log(popped);
+console.log(friends);
+
+const shifting = friends.shift(); // removes first element - the shift function results the removed element
+console.log(shifting);
+console.log(friends);
+
+console.log(friends.indexOf('Chad')); // returns the index of the element passed as an argument
+
+console.log(friends.includes('Chad')); // returns true or false based on whether the element is present in the array
+console.log(friends.includes('Bob'));
+
+friends.push(23);
+console.log(friends.includes(23));
+console.log(friends.includes('23')); // includes is a strict function
+
+if (friends.includes('Grace')) {
+  console.log('You have a friend named Grace.');
+}
+*/
+
+// CODING CHALLENGE 2
