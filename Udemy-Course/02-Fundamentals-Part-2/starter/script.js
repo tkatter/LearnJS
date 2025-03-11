@@ -185,3 +185,50 @@ checkWinner(scoreDolphins, scoreKoalas);
 */
 
 // INTRODUCTION TO ARRAYS
+// two most important data structures in JavaScript are arrays and objects
+const friend1 = 'Grace';
+const friend2 = 'Chad';
+const friend3 = 'Zach';
+
+// two ways to create an array
+const friends = ['Grace', 'Chad', 'Zach'];
+// const years = new Array(1991, 1984, 2008, 2020);
+
+console.log(friends[0]); // print the value at the 0 position
+console.log(friends[2]); // print the value at the 2nd position
+
+console.log(friends.length); // print the number of items in the array
+console.log(friends.length - 1);
+console.log(friends[friends.length - 1]);
+
+// friends[2] = 'Jay'; // change the value at position 2 in the array
+// console.log(friends);
+
+const firstName = 'Thomas';
+const lastName = 'Katter';
+const job = 'carpenter';
+const calcAge = birthYear => 2025 - birthYear;
+
+const thomas = [firstName, lastName, calcAge(2003), job, friends];
+console.log(thomas);
+console.log(thomas.length);
+
+// Excercise
+const calcAge2 = function (birthYear) {
+  return 2025 - birthYear;
+};
+
+// array of birthYears
+const years = [1990, 2000, 2003, 2024, 2004, 2007];
+
+const age1 = calcAge2(years[0]); // 1990
+const age2 = calcAge2(years[1]); // 2000
+const age3 = calcAge2(years[years.length - 1]); // 2007
+console.log(age1, age2, age3);
+
+const ages = [
+  calcAge2(years[0]),
+  calcAge2(years[1]),
+  calcAge2(years[years.length - 1]),
+];
+console.log(ages);
