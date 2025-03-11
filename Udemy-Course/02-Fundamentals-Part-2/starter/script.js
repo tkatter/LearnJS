@@ -272,3 +272,21 @@ if (friends.includes('Grace')) {
 */
 
 // CODING CHALLENGE 2
+/*
+const calcTip = function (billValue) {
+  const tip =
+    50 <= billValue && billValue <= 300
+      ? Number(billValue) * 0.15
+      : Number(billValue) * 0.2;
+  return tip;
+};
+// console.log(calcTip(10));
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+// console.log(bills);
+// console.log(tips);
+// console.log(totals);
+*/
+
+// INTRODUCTION TO OBJECTS
