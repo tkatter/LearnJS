@@ -290,3 +290,38 @@ const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
 */
 
 // INTRODUCTION TO OBJECTS
+/*
+// review of arrays
+const thomasArray = [
+  'Thomas',
+  'Katter',
+  2025 - 2003,
+  'Carpenter',
+  ['Grace', 'Chad', 'Zach'],
+];
+
+// objects are made up of key-value pairs
+// the value can be any expression
+// keys are also called properties
+// an object with the same information as the array above:
+const thomas = {
+  firstName: 'Thomas',
+  lastName: 'Katter',
+  age: 2025 - 2003,
+  job: 'carpenter',
+  friends: ['Grace', 'Chad', 'Zach'],
+};
+
+// many ways to create objects:
+// object literal syntax: uses the curly brackets like above to write an object
+const literalObject = {
+  property1: 'Thomas',
+  property2: 'Katter',
+  property3: 'human',
+};
+
+// objects are best used for unstructured data because the order of data doesn't matter when retrieving them
+// arrays are best used for structured data because we can retrieve data based on its order in an array
+*/
+
+// DOT VS BRACKET NOTATION
