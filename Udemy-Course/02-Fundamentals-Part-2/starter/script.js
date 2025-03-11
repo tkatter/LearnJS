@@ -93,7 +93,7 @@ console.log(yearsUntilRetirement(2007, 'Grace'));
 */
 
 // FUNCTIONS CALLING OTHER FUNCTIONS
-
+/*
 function cutFruitPieces(fruit) {
   return fruit * 6;
 }
@@ -105,3 +105,62 @@ function fruitProcessor(apples, oranges) {
   return juice;
 }
 console.log(fruitProcessor(2, 3));
+*/
+
+// REVIEWING FUNCTIONS
+// /*
+const calcAge = function (birthYear) {
+  return 2025 - birthYear;
+};
+
+const yearsUntilRetirement = function (birthYear, firstName) {
+  const age = calcAge(birthYear);
+  const retirement = 65 - age;
+  if (retirement > 0) {
+    return `${firstName}, you will retire in ${retirement} years.`;
+  } else if (retirement === 0) {
+    return `${firstName}, you are retiring this year! WooHoo!`;
+  } else {
+    return `${firstName}, you have already retired, congrats!`;
+  }
+  // return retirement;
+  // return `${firstName} is ${age} years old now and will retire in ${retirement} years.`;
+};
+
+console.log(yearsUntilRetirement(2003, 'Thomas'));
+console.log(yearsUntilRetirement(1960, 'Mike'));
+console.log(yearsUntilRetirement(1950, 'Sean'));
+
+// THREE FUNCTION TYPES
+// function declaration - can be used before it's declared
+function calcAge(birthYear) {
+  return 2025 - birthYear;
+}
+
+// function expression - essentially a function value stored in a variable
+const calcAge = function (birthYear) {
+  return 2025 - birthYear;
+};
+
+// arrow function - great for quick one-line functions. has no "this" keyword
+const calcAge = birthYear => 2037 - birthYear;
+
+// three different ways of writing functions, but they all work in a similar way: recieve input data, transform data, and then output data.
+// */
+// /*
+// FUNCTION ANATOMY
+// NAME: name of the function to be used when invoking/running/calling the function [calcAge]
+// PARAMETERS: placeholders to receive input values, like local variables of a function [birthYear, firstName]
+// FUNCTION BODY: block of code that we want to reuse throughout our larger code, processes the function's input data [const age = 2025 - birthYear; console.log(`${firstName} is ${age} years old.`);]
+// RETURN STATEMENT: outputs a value from the function and terminate execution [return age;]
+function calcAge(birthYear, firstName) {
+  const age = 2025 - birthYear;
+  console.log(`${firstName} is ${age} years old.`);
+  return age;
+}
+
+// CALLING/RUNNING/INVOKING THE FUNCTION USING (): without the () calcAge is seen as just a value
+// ARGUMENTS: actual values of function parameters, to input data [2003, 'Thomas']
+// VARIABLE: to save returned value (function output) [const myAge =], the returned value in this example would be the value of "age" which is a number
+const myAge = calcAge(2003, 'Thomas');
+// */
