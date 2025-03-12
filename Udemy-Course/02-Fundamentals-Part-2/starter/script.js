@@ -325,16 +325,51 @@ const literalObject = {
 */
 
 // DOT VS BRACKET NOTATION
+/*
 const thomas = {
   firstName: 'Thomas',
   lastName: 'Katter',
   age: 2025 - 2003,
   job: 'carpenter',
   friends: ['Grace', 'Chad', 'Zach'],
+  location: 'zimmerman',
 };
 
 // dot notation
 console.log(thomas.lastName);
 // bracket notation - can use any expression in [] to calculate the property we want to retrieve
 console.log(thomas['lastName']);
+// examples using expressions
 console.log(thomas['last' + 'Name']);
+const nameKey = 'Name';
+console.log(thomas['first' + nameKey]);
+
+const interestedIn = prompt(
+  'What do you want to know about Thomas? Choose between firstName, lastName, age, job, or friends.'
+);
+
+if (thomas[interestedIn]) {
+  console.log(thomas[interestedIn]);
+} else {
+  console.log(`Not a valid option.`);
+}
+
+// adding properties
+thomas.address = `14120 269th Ave NW`;
+thomas['ig'] = 'tok1n.th3rm0s';
+console.log(thomas);
+
+// Challenge
+// Thomas has 3 friends and his best friend is called Grace.
+const thomasNew = {
+  firstName: 'Thomas',
+  friends: ['Grace', 'Chad', 'Zach'],
+};
+// console.log(thomasNew['friends']);
+// console.log(thomasNew['bestFriend']);
+console.log(
+  `${thomasNew.firstName} has ${thomasNew.friends.length} friends and his best friend is called ${thomasNew.friends[0]}.`
+);
+*/
+
+// OBJECT METHODS
