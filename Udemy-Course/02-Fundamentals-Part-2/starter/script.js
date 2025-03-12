@@ -373,3 +373,100 @@ console.log(
 */
 
 // OBJECT METHODS
+/*
+const thomas = {
+  firstName: 'Thomas',
+  lastName: 'Katter',
+  birthYear: 2003,
+  job: 'carpenter',
+  friends: ['Grace', 'Chad', 'Zach'],
+  hasDriversLicense: true,
+
+  // calcAge: function (birthYear) {
+  //   return 2025 - birthYear;
+  // },
+
+  //   calcAge: function () {
+  //     return 2025 - this.birthYear;
+  //   },
+
+  calcAge: function () {
+    this.age = 2025 - this.birthYear;
+    return this.age;
+  },
+};
+
+// console.log(thomas.calcAge());
+// thomas.birthYear = 2004;
+// console.log(thomas.calcAge());
+console.log(thomas.calcAge());
+console.log(thomas.age);
+*/
+
+// Challenge
+// write a method called getSummary that will return a string that summarizes the data of the object
+/*
+const grace = {
+  firstName: 'Grace',
+  lastName: 'Murphy',
+  birthYear: 2003,
+  homeAddress: '13923 10th Ave. S.',
+  city: 'Zimmerman',
+  state: 'MN',
+  friends: ['Thomas', 'Emma', 'Ella', 'Abby', 'Danie', 'Maddy', 'Morgan'],
+  calcAge: function () {
+    this.age = 2025 - this.birthYear;
+    return this.age;
+  },
+  getSummary: function () {
+    this.summary = `${this.firstName} ${this.lastName} is ${
+      this.age
+    } years old. ${this.firstName} lives on ${this.homeAddress} ${this.city}, ${
+      this.state
+    }. ${this.firstName} has ${this.friends.length} friends; ${
+      this.friends[0]
+    } is her boyfriend, ${this.friends[1]} is her best friend, and ${
+      this.friends[this.friends.length - 1]
+    } is her sister.`;
+    return this.summary;
+  },
+};
+grace.calcAge();
+grace.getSummary();
+console.log(grace.summary);
+console.log(grace);
+*/
+
+// CODING CHALLENGE 3
+const mark = {
+  fullName: 'Mark Miller',
+  mass: 78,
+  height: 1.69,
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  },
+};
+
+const john = {
+  fullName: 'John Smith',
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  },
+};
+
+mark.calcBMI();
+john.calcBMI();
+
+if (mark.bmi > john.bmi) {
+  console.log(
+    `${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s (${john.bmi})!`
+  );
+} else if (john.bmi > mark.bmi) {
+  console.log(
+    `${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s (${mark.bmi})!`
+  );
+}
