@@ -325,3 +325,16 @@ const literalObject = {
 */
 
 // DOT VS BRACKET NOTATION
+const thomas = {
+  firstName: 'Thomas',
+  lastName: 'Katter',
+  age: 2025 - 2003,
+  job: 'carpenter',
+  friends: ['Grace', 'Chad', 'Zach'],
+};
+
+// dot notation
+console.log(thomas.lastName);
+// bracket notation - can use any expression in [] to calculate the property we want to retrieve
+console.log(thomas['lastName']);
+console.log(thomas['last' + 'Name']);
