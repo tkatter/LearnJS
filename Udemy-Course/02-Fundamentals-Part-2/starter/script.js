@@ -474,6 +474,7 @@ if (mark.bmi > john.bmi) {
 */
 
 // ITERATION: THE FOR LOOP
+/*
 // allow us to automate repetitive tasks
 // console.log('Lifting weights repetition 1');
 // console.log('Lifting weights repetition 2');
@@ -490,3 +491,54 @@ if (mark.bmi > john.bmi) {
 for (let rep = 1; rep <= 10; rep++) {
   console.log(`Lifting weights repetition ${rep}`);
 }
+*/
+
+// LOOPING ARRAYS, BREAKING, AND CONTINUING
+/*
+const thomasArray = [
+  'Thomas',
+  'Katter',
+  2025 - 2003,
+  'Carpenter',
+  ['Grace', 'Chad', 'Zach'],
+  'bebe',
+];
+const types = [];
+
+for (let i = 0; i < thomasArray.length; i++) {
+  // Reading from thomasArray
+  console.log(thomasArray[i]);
+
+  // Filling types array
+  // types[i] = typeof thomasArray[i];
+
+  types.push(typeof thomasArray[i]);
+}
+console.log(types);
+
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+  ages.push(2025 - years[i]);
+}
+console.log(ages);
+// continue and break
+console.log('---ONLY STRINGS---');
+for (let i = 0; i < thomasArray.length; i++) {
+  // this will only log string values from thomasArray
+  if (typeof thomasArray[i] !== 'string') continue;
+  // when continue is used, it imediately exits the current iteration
+  // therefore, this console.log line won't ever be read
+  console.log(thomasArray[i], typeof thomasArray[i]);
+}
+
+console.log('---BREAK WITH NUMBER---');
+for (let i = 0; i < thomasArray.length; i++) {
+  if (typeof thomasArray[i] === 'number') break;
+  
+  console.log(thomasArray[i], typeof thomasArray[i]);
+}
+*/
+
+// LOOPING BACKWARDS AND LOOPS IN LOOPS
