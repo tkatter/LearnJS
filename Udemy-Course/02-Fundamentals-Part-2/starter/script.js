@@ -472,32 +472,3 @@ if (mark.bmi > john.bmi) {
   );
 }
 */
-
-// test implementation
-/*
-const firstName = prompt('What is your first name?');
-const userMass = prompt('What is your weight in pounds?');
-const userHeight = prompt('What is your height in inches?');
-
-console.log(firstName, userMass, userHeight);
-
-const user = {
-  firstName: firstName,
-  mass: userMass / 2.205,
-  height: userHeight / 39.37,
-  calcBMI: function () {
-    this.bmi = this.mass / (this.height * this.height);
-    return this.bmi;
-  },
-  getYourBMI: function () {
-    this.yourBMI = `${this.firstName}, your BMI is ${this.bmi}.`;
-    return this.yourBMI;
-  },
-};
-
-console.log(user.firstName, user.mass, user.height);
-
-user.calcBMI();
-user.getYourBMI();
-console.log(user.yourBMI);
-*/
