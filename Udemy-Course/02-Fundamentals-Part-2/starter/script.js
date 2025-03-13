@@ -542,3 +542,28 @@ for (let i = 0; i < thomasArray.length; i++) {
 */
 
 // LOOPING BACKWARDS AND LOOPS IN LOOPS
+/*
+const thomasArray = [
+  'Thomas',
+  'Katter',
+  2025 - 2003,
+  'Carpenter',
+  ['Grace', 'Chad', 'Zach'],
+];
+
+// print the array in reverse order
+for (let i = thomasArray.length - 1; i >= 0; i--) {
+  console.log(i, thomasArray[i]);
+}
+
+// loop inside loop
+for (let excercise = 1; excercise < 4; excercise++) {
+  console.log(`----- Starting exercise ${excercise}`);
+
+  for (let rep = 1; rep < 6; rep++) {
+    console.log(`Exercise ${excercise} Lifting weight repetition ${rep}`);
+  }
+}
+*/
+
+// THE WHILE LOOP
