@@ -567,3 +567,47 @@ for (let excercise = 1; excercise < 4; excercise++) {
 */
 
 // THE WHILE LOOP
+/*
+// for (let rep = 1; rep <= 5; rep++) {
+//   console.log(`Lifting weights repetition ${rep}`);
+// }
+
+let rep = 1;
+while (rep <= 5) {
+  // console.log(`Lifting weights repetition ${rep}`);
+  rep++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+// console.log(dice);
+ 
+while (dice !== 6) {
+  console.log(`You rolled a ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+  if (dice === 6) console.log(`You rolled a 6!`);
+}
+*/
+
+// CODING CHALLENGE 4
+/*
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+for (let i = 0; i < 10; i++) {
+  tips[i] = calcTip(bills[i]);
+  totals[i] = tips[i] + bills[i];
+}
+
+const calcAverage = function (arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
+  }
+  return sum / arr.length;
+};
+*/
