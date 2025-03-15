@@ -10,13 +10,25 @@ console.log("File written!");
 */
 
 const server = http.createServer((req, res) => {
-  let reqInfo = req;
-  console.log(reqInfo);
+  // let reqInfo = req;
+  // console.log(reqInfo);
   // fs.writeFile('./txt/req.txt', `${reqInfo}`, 'utf-8', err => {
   //   if (err) throw err;
   //   console.log('file written');
   // });
-  res.end('Hey you ;)');
+  const pathName = req.url;
+
+  if (pathName === '/' || pathName === '/overview') {
+    res.end('This is the OVERVIEW page.');
+  } else if (pathName === '/product') {
+    res.end('This is the PRODUCT page.');
+  } else {
+    res.writeHead(404, {
+      'Content-type': 'text/html',
+      'my-own-header': 'hello-world!',
+    });
+    res.end('<h1>404 Page not found.</h1>');
+  }
 });
 
 server.listen(8000, '127.0.0.1', () => {
