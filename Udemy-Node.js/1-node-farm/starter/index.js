@@ -22,6 +22,11 @@ const server = http.createServer((req, res) => {
     res.end('This is the OVERVIEW page.');
   } else if (pathName === '/product') {
     res.end('This is the PRODUCT page.');
+  } else if (pathName === '/api') {
+    fs.readFile(`${__dirname}/dev-data/data.json`, 'utf-8', (err, data) => {
+      const productData = JSON.parse(data);
+      console.log(productData);
+    });
   } else {
     res.writeHead(404, {
       'Content-type': 'text/html',
@@ -33,4 +38,5 @@ const server = http.createServer((req, res) => {
 
 server.listen(8000, '127.0.0.1', () => {
   console.log('Listening to requests on port 8000...');
+  console.log(__dirname);
 });
