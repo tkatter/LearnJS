@@ -40,25 +40,29 @@ const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
 const dataObj = JSON.parse(data);
 
 const server = http.createServer((req, res) => {
-  // let reqInfo = req;
-  // console.log(reqInfo);
-  // fs.writeFile('./txt/req.txt', `${reqInfo}`, 'utf-8', err => {
-  //   if (err) throw err;
-  //   console.log('file written');
-  // });
-  const pathName = req.url;
+  const { query, pathname } = url.parse(req.url, true);
 
-  if (pathName === '/' || pathName === '/overview') {
+  // Overview Page
+  if (pathname === '/' || pathname === '/overview') {
     res.writeHead(200, { 'Content-type': 'text/html' });
-
     const cardsHtml = dataObj.map(el => replaceTemplate(tempCard, el)).join('');
     const output = tempOverview.replace('{%PRODUCT_CARDS%}', cardsHtml);
     res.end(output);
-  } else if (pathName === '/product') {
+
+    // Product page
+  } else if (pathname === '/product') {
+    res.writeHead(200, { 'Content-type': 'text/html' });
+    const product = dataObj[query.id];
+    const output = null; // CHANGE HERE
+
     res.end('This is the PRODUCT page.');
-  } else if (pathName === '/api') {
+
+    // API page
+  } else if (pathname === '/api') {
     res.writeHead(200, { 'Content-type': 'application/json' });
     res.end(`${data}`);
+
+    // 404 not found
   } else {
     res.writeHead(404, {
       'Content-type': 'text/html',
@@ -70,5 +74,4 @@ const server = http.createServer((req, res) => {
 
 server.listen(8000, '127.0.0.1', () => {
   console.log('Listening to requests on port 8000...');
-  console.log(dataObj[0].productName);
 });
