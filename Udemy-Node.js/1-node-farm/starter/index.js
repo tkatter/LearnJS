@@ -1,6 +1,10 @@
+// Core modules
 const fs = require('fs');
 const http = require('http');
 const url = require('url');
+// Our modules
+const replaceTemplate = require('./modules/replaceTemplate');
+
 /*
 // reading and writing to and from files
 const textIn = fs.readFileSync("./txt/input.txt", "utf8");
@@ -8,21 +12,6 @@ const textOut = `This is what we know about the avocado: ${textIn}\nCreated on $
 fs.writeFileSync("./txt/output.txt", textOut);
 console.log("File written!");
 */
-const replaceTemplate = (temp, product) => {
-  let output = temp.replace(/{%PRODUCTNAME%}/g, product.productName);
-  output = output.replace(/{%IMAGE%}/g, product.image);
-  output = output.replace(/{%PRICE%}/g, product.price);
-  output = output.replace(/{%FROM%}/g, product.from);
-  output = output.replace(/{%NUTRIENTS%}/g, product.nutrients);
-  output = output.replace(/{%QUANTITY%}/g, product.quantity);
-  output = output.replace(/{%DESCRIPTION%}/g, product.description);
-  output = output.replace(/{%ID%}/g, product.id);
-
-  if (!product.organic) {
-    output = output.replace(/{%NOTORGANIC%}/g, 'not-organic');
-  }
-  return output;
-};
 
 const tempOverview = fs.readFileSync(
   `${__dirname}/templates/TEMPLATE-overview.html`,
@@ -53,9 +42,8 @@ const server = http.createServer((req, res) => {
   } else if (pathname === '/product') {
     res.writeHead(200, { 'Content-type': 'text/html' });
     const product = dataObj[query.id];
-    const output = null; // CHANGE HERE
-
-    res.end('This is the PRODUCT page.');
+    const output = replaceTemplate(tempProduct, product);
+    res.end(output);
 
     // API page
   } else if (pathname === '/api') {
