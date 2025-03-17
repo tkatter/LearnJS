@@ -21,6 +21,7 @@ const tempCard = fs.readFileSync(`${__dirname}/templates/TEMPLATE-card.html`, 'u
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
 const dataObj = JSON.parse(data);
 
+// SLUGIFY FUNCTION
 // const slugs = dataObj.map(el =>
 //   slugify(el.productName, {
 //     replacement: '-',
@@ -29,11 +30,10 @@ const dataObj = JSON.parse(data);
 //   })
 // );
 
+// ADD SLUGS TO PRODUCT OBJECTS
 // for (let i = 0; i < dataObj.length; i++) {
 //   dataObj[i].slug = slugs[i];
 // }
-
-// console.log(dataObj);
 
 const server = http.createServer((req, res) => {
   const { query, pathname } = url.parse(req.url, true);
