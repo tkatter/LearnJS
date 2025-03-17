@@ -15,18 +15,9 @@ fs.writeFileSync("./txt/output.txt", textOut);
 console.log("File written!");
 */
 
-const tempOverview = fs.readFileSync(
-  `${__dirname}/templates/TEMPLATE-overview.html`,
-  'utf-8'
-);
-const tempProduct = fs.readFileSync(
-  `${__dirname}/templates/TEMPLATE-product.html`,
-  'utf-8'
-);
-const tempCard = fs.readFileSync(
-  `${__dirname}/templates/TEMPLATE-card.html`,
-  'utf-8'
-);
+const tempOverview = fs.readFileSync(`${__dirname}/templates/TEMPLATE-overview.html`, 'utf-8');
+const tempProduct = fs.readFileSync(`${__dirname}/templates/TEMPLATE-product.html`, 'utf-8');
+const tempCard = fs.readFileSync(`${__dirname}/templates/TEMPLATE-card.html`, 'utf-8');
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
 const dataObj = JSON.parse(data);
 
