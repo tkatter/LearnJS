@@ -2,6 +2,8 @@
 const fs = require('fs');
 const http = require('http');
 const url = require('url');
+// 3rd party
+const slugify = require('slugify');
 // Our modules
 const replaceTemplate = require('./modules/replaceTemplate');
 
@@ -28,9 +30,24 @@ const tempCard = fs.readFileSync(
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
 const dataObj = JSON.parse(data);
 
+// const slugs = dataObj.map(el =>
+//   slugify(el.productName, {
+//     replacement: '-',
+//     lower: true,
+//     trim: true,
+//   })
+// );
+
+// for (let i = 0; i < dataObj.length; i++) {
+//   dataObj[i].slug = slugs[i];
+// }
+
+// console.log(dataObj);
+
 const server = http.createServer((req, res) => {
   const { query, pathname } = url.parse(req.url, true);
-
+  console.log(url.parse(req.url, true));
+  // console.log(pathname);
   // Overview Page
   if (pathname === '/' || pathname === '/overview') {
     res.writeHead(200, { 'Content-type': 'text/html' });
