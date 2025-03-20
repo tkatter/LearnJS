@@ -4,7 +4,8 @@ const express = require('express');
 // Core Variables
 const app = express();
 
-// Route
+// Route/API
+/*
 app.get('/', (req, res) => {
   // res.status(200).send('Hello from the server side!');
   res
@@ -15,6 +16,9 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
   res.status(200).send('You can post to this endpoint...');
 });
+*/
+
+app.get('/api/v1/tours');
 
 // Server
 const port = 3000;
