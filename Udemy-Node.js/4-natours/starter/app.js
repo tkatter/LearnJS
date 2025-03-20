@@ -4,9 +4,11 @@ curl -H 'Content-Type: application/json' \
 -d '{ "key":"value","key":"value"}' \
 -X POST \
 http://127.0.0.1:3000/api/v1/tours
+
+PATCH
 curl -H 'Content-Type: application/json' \
--d '{ "name":"Test Tour 3","duration":"1","difficulty":"easy","maxGroupSize":"12"}' \
--X POST \
+-d '{ "key":"value","key":"value"}' \
+-X PATCH \
 http://127.0.0.1:3000/api/v1/tours
 */
 
@@ -52,6 +54,28 @@ app.get('/api/v1/tours', (req, res) => {
   });
 });
 
+// GET REQUEST for specific tour using a unique identifier variable
+app.get('/api/v1/tours/:id', (req, res) => {
+  // console.log(req.params);
+  const id = req.params.id * 1;
+  const tour = tours.find(el => el.id === id);
+
+  // Check if tour is undefined (tour doesn't exist)
+  if (!tour) {
+    return res.status(404).json({
+      status: 'failed',
+      message: 'Invalid ID',
+    });
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      tour,
+    },
+  });
+});
+
 // POST REQUEST /tours is the RESOURCE here
 app.post('/api/v1/tours', (req, res) => {
   // console.log(req.body);
@@ -77,6 +101,22 @@ app.post('/api/v1/tours', (req, res) => {
   );
 });
 
+// PATCH REQUEST to update individual properties of the tours object
+app.patch('/api/v1/tours/:id', (req, res) => {
+  if (req.params.id * 1 > tours.length - 1) {
+    return res.status(404).json({
+      status: 'failed',
+      message: 'Invalid ID',
+    });
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      tour: '<Updated tour here>',
+    },
+  });
+});
 // Server
 const port = 3000;
 app.listen(port, () => {
