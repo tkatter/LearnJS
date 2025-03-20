@@ -1,8 +1,31 @@
+// curl post request:
+/*
+curl -H 'Content-Type: application/json' \
+-d '{ "key":"value","key":"value"}' \
+-X POST \
+http://127.0.0.1:3000/api/v1/tours
+curl -H 'Content-Type: application/json' \
+-d '{ "name":"Test Tour 3","duration":"1","difficulty":"easy","maxGroupSize":"12"}' \
+-X POST \
+http://127.0.0.1:3000/api/v1/tours
+*/
+
 // Importing modules
+// Core modules
 const express = require('express');
+const fs = require('fs');
 
 // Core Variables
 const app = express();
+
+// Middleware
+app.use(express.json());
+
+// TOP LEVEL CODE
+// read tours-simple data file
+const tours = JSON.parse(
+  fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`)
+);
 
 // Route/API
 /*
@@ -18,7 +41,41 @@ app.post('/', (req, res) => {
 });
 */
 
-app.get('/api/v1/tours');
+// GET REQUEST /tours is the RESOURCE here
+app.get('/api/v1/tours', (req, res) => {
+  res.status(200).json({
+    status: 'success',
+    results: tours.length,
+    data: {
+      tours,
+    },
+  });
+});
+
+// POST REQUEST /tours is the RESOURCE here
+app.post('/api/v1/tours', (req, res) => {
+  // console.log(req.body);
+
+  // Make a new ID
+  const newId = tours[tours.length - 1].id + 1;
+
+  // Replace the request ID with the new ID
+  const newTour = Object.assign({ id: newId }, req.body);
+
+  // Push the new tour to the original tours array
+  tours.push(newTour);
+  // Write this new tour addition to the original data file
+  fs.writeFile(
+    `${__dirname}/dev-data/data/tours-simple.json`,
+    JSON.stringify(tours),
+    err => {
+      res.status(201).json({
+        status: 'success',
+        tour: newTour,
+      });
+    }
+  );
+});
 
 // Server
 const port = 3000;
