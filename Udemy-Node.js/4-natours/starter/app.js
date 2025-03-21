@@ -35,9 +35,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// TOP LEVEL CODE
-//
-//
 // ROUTES
 /* original route code
 app.get('/api/v1/tours', getAllTours);
@@ -49,8 +46,4 @@ app.delete('/api/v1/tours/:id', deleteTour);
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
 
-// SERVER
-const port = 3000;
-app.listen(port, () => {
-  console.log(`App running on port ${port}...`);
-});
+module.exports = app;
