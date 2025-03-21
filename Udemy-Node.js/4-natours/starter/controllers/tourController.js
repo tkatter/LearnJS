@@ -14,6 +14,22 @@ exports.checkID = (req, res, next, val) => {
   }
   next();
 };
+
+exports.checkBody = (req, res, next) => {
+  if (
+    !req.body.name ||
+    typeof req.body.name !== 'string' ||
+    !req.body.price ||
+    typeof req.body.price !== 'number'
+  ) {
+    return res.status(400).json({
+      status: 'fail',
+      message: 'Missing name or price',
+    });
+  }
+  next();
+};
+
 exports.getAllTours = (req, res) => {
   res.status(200).json({
     status: 'success',
@@ -24,6 +40,7 @@ exports.getAllTours = (req, res) => {
     },
   });
 };
+
 exports.getTour = (req, res) => {
   const id = req.params.id * 1;
   const tour = tours.find(el => el.id === id);
@@ -34,6 +51,7 @@ exports.getTour = (req, res) => {
     },
   });
 };
+
 exports.createTour = (req, res) => {
   // Make a new ID
   const newId = tours[tours.length - 1].id + 1;
@@ -43,7 +61,7 @@ exports.createTour = (req, res) => {
   tours.push(newTour);
   // Write this new tour addition to the original data file
   fs.writeFile(
-    `${__dirname}/dev-data/data/tours-simple.json`,
+    `${__dirname}./../dev-data/data/tours-simple.json`,
     JSON.stringify(tours),
     err => {
       res.status(201).json({
@@ -53,6 +71,7 @@ exports.createTour = (req, res) => {
     }
   );
 };
+
 exports.updateTour = (req, res) => {
   res.status(200).json({
     status: 'success',
@@ -61,6 +80,7 @@ exports.updateTour = (req, res) => {
     },
   });
 };
+
 exports.deleteTour = (req, res) => {
   res.status(204).json({
     status: 'success',
