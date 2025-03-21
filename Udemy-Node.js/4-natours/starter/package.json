@@ -1,11 +1,10 @@
 {
-  "name": "my-starter-natours-proj",
+  "name": "my-starter-natours-project",
   "version": "1.0.0",
-  "description": "learning node.js, express & mongoDB",
+  "description": "learn node.js, express, mongoDB, and mongoose",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "author": "Thomas Katter",
   "license": "ISC",
@@ -13,5 +12,8 @@
     "dotenv": "^16.4.7",
     "express": "^4.16.4",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }
