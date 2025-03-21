@@ -24,7 +24,7 @@ const userRouter = require('./routes/userRoutes');
 const app = express();
 
 // MIDDLEWARES
-if (process.env.NODE_ENV === 'development' && process.env.USER === 'thomas') {
+if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 app.use(express.json());
