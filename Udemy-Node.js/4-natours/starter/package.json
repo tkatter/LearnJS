@@ -1,20 +1,16 @@
 {
-  "name": "natours",
+  "name": "my-starter-natours-proj",
   "version": "1.0.0",
-  "description": "learning node.js, express, mongoDB, and mongoose",
+  "description": "learning node.js, express & mongoDB",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "Thomas Katter",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.7",
-    "express": "^4.16.4",
-    "morgan": "^1.10.0",
-    "natours": "file:"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.9"
+    "morgan": "^1.10.0"
   }
 }
