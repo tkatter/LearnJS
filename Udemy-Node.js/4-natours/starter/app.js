@@ -33,10 +33,6 @@ app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
   next();
 });
-// app.use((req, res, next) => {
-//   console.log('Hello from the middleware!');
-//   next();
-// });
 
 // ROUTES
 /* original route code
@@ -48,5 +44,13 @@ app.delete('/api/v1/tours/:id', deleteTour);
 */
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
+
+// MIDDLEWARE AFTER REQUEST WAS NOT REACHED BY OUR ROUTERS
+app.all('*', (req, res, next) => {
+  res.status(404).json({
+    status: 'fail',
+    message: `Can't find ${req.originalUrl}`,
+  });
+});
 
 module.exports = app;
