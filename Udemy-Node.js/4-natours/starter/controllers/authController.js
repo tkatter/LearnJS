@@ -16,6 +16,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     email: req.body.email,
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm,
+    role: req.body.role,
   });
 
   const token = signToken(newUser._id);
@@ -73,21 +74,34 @@ exports.protect = catchAsync(async (req, res, next) => {
   // console.log(decoded);
 
   // 3) If verification succeeds, check if user still exists
-  const freshUser = await User.findById(decoded.id);
-  if (!freshUser) {
+  const currentUser = await User.findById(decoded.id);
+  if (!currentUser) {
     return next(
       new AppError('The user associated with this token no longer exists.', 401)
     );
   }
 
   // 4) Check if user changed password after the token was issued
-  if (freshUser.changedPasswordAfter(decoded.iat)) {
+  if (currentUser.changedPasswordAfter(decoded.iat)) {
     return next(
       new AppError('User recently changed password. Please login again', 401)
     );
   }
 
-  req.user = freshUser;
-  // console.log(req.user);
+  req.user = currentUser;
+  console.log(req.user);
   next();
 });
+
+exports.restrictTo = (...roles) => {
+  return (req, res, next) => {
+    // roles ['admin', 'lead-guide']
+    if (!roles.includes(req.user.role)) {
+      return next(
+        new AppError('You do not have permission to perform this action', 403)
+      );
+    }
+
+    next();
+  };
+};

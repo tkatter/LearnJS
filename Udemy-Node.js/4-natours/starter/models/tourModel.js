@@ -104,7 +104,9 @@ const tourSchema = new mongoose.Schema(
 
 // Virtual Properties
 tourSchema.virtual('durationWeeks').get(function () {
-  return this.duration / 7;
+  if (this.ratingsAverage) {
+    return this.duration / 7;
+  }
 });
 
 // DOCUMENT MIDDLEWARE: runs before .save() and .create()
