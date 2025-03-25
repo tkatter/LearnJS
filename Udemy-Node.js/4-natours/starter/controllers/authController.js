@@ -113,8 +113,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   // Verify user exists
   if (!user) {
     return next(
-      new AppError(`There is no user associated with ${req.body.email}.`),
-      404
+      new AppError(`There is no user associated with the email.`, 404)
     );
   }
 
@@ -123,7 +122,12 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   await user.save({ validateBeforeSave: false });
 
   // 3_ Send it to user's email
-  next();
+  res.status(200).json({
+    status: 'success',
+    data: {
+      resetToken,
+    },
+  });
 });
 
 exports.resetPassword = (req, res, next) => {
