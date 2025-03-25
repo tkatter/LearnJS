@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const emoji = require('./utils/emoji');
 
 process.on('uncaughtException', err => {
   console.log(err.name, err.message);
-  console.log('UNCAUGHT EXCEPTION - SHUTTING DOWN');
+  console.log(
+    `UNCAUGHT EXCEPTION ${emoji.redX}${emoji.siren}- SHUTTING DOWN ${emoji.exclaim2}`
+  );
   process.exit(1);
 });
 
@@ -17,18 +20,22 @@ const database = process.env.DATABASE.replace(
 
 // Connect to MongoDB database
 mongoose.connect(database).then(() => {
-  console.log('DB connection successful!');
+  console.log(`DB connection successful! ${emoji.greenCheck}`);
 });
 
 const port = process.env.PORT;
 const server = app.listen(port, () => {
-  console.log(`App running on port ${port}...`);
-  console.log(`Node is running in a ${process.env.NODE_ENV} environment`);
+  console.log(`App running on port ${port}... ${emoji.greenCheck}`);
+  console.log(
+    `Node is running in a ${process.env.NODE_ENV} environment ${emoji.dev}`
+  );
 });
 
 process.on('unhandledRejection', err => {
   console.log(err.name, err.message);
-  console.log('UNHANDLED REJECTION - SHUTTING DOWN');
+  console.log(
+    `UNHANDLED REJECTION ${emoji.redX}${emoji.siren} - SHUTTING DOWN ${emoji.exclaim2}`
+  );
   server.close(() => {
     process.exit(1);
   });
