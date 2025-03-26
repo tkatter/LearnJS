@@ -6,7 +6,6 @@
 - <span style="color:green">201</span> = Created
 - <span style="color:green">202</span> = Accepted
 - <span style="color:green">204</span> = No content
-- <span style="color:green">204</span> = No content
 
 ## Error or Fail Codes
 
