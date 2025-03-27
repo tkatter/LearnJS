@@ -17,7 +17,7 @@ const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
-const xss = require('xss');
+const hpp = require('hpp');
 
 // USER MODULES
 const AppError = require('./utils/appError');
@@ -55,6 +55,20 @@ app.use(mongoSanitize());
 
 // Middleware to Sanitize data against XSS attacks
 app.use(sanitizeRequest);
+
+// Middleware to prevent parameter pollution
+app.use(
+  hpp({
+    whitelist: [
+      'duration',
+      'ratingsQuantity',
+      'ratingsAverage',
+      'maxGroupSize',
+      'difficulty',
+      'price',
+    ],
+  })
+);
 
 // Middleware to serve static files
 app.use(express.static(`${__dirname}/public`));
