@@ -14,6 +14,20 @@ const signToken = id => {
 
 const createSendToken = (user, statusCode, res) => {
   const token = signToken(user._id);
+  const cookieOptions = {
+    expires: new Date(
+      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 60 * 60 * 1000
+    ),
+    httpOnly: true, // Makes the cookie inaccessible to client-side JavaScript
+  };
+
+  // Only send the cookie over HTTPS in production
+  if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
+
+  // Remove the password from the output
+  user.password = undefined;
+
+  res.cookie('jwt', token, cookieOptions);
 
   res.status(statusCode).json({
     status: 'success',
