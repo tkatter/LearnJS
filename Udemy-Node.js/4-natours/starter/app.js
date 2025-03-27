@@ -54,7 +54,7 @@ app.use(express.json({ limit: '10kb' }));
 app.use(mongoSanitize());
 
 // Middleware to Sanitize data against XSS attacks
-app.use(sanitizeRequest);
+// app.use(sanitizeRequest);
 
 // Middleware to prevent parameter pollution
 app.use(
@@ -76,7 +76,6 @@ app.use(express.static(`${__dirname}/public`));
 // Test middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
-  console.log(req);
   next();
 });
 
