@@ -132,11 +132,16 @@ const tourSchema = new mongoose.Schema(
   }
 );
 
+// Virtual Populate
+tourSchema.virtual('reviews', {
+  ref: 'Review',
+  foreignField: 'tour',
+  localField: '_id',
+});
+
 // Virtual Properties
 tourSchema.virtual('durationWeeks').get(function () {
-  if (this.ratingsAverage) {
-    return this.duration / 7;
-  }
+  return this.duration / 7;
 });
 
 // DOCUMENT MIDDLEWARE: runs before .save() and .create()
