@@ -5,25 +5,39 @@ const mongoose = require('mongoose');
 // 4) Reference to the tour of which the review pertains to
 // 5) Reference to the user of which the review belongs to
 
-const reviewSchema = new mongoose.Schema({
-  rating: {
-    type: Number,
-    required: true,
-    enum: [0, 1, 2, 3, 4, 5],
+const reviewSchema = new mongoose.Schema(
+  {
+    rating: {
+      type: Number,
+      required: true,
+      enum: [1, 2, 3, 4, 5],
+    },
+    review: {
+      type: String,
+      required: [true, 'Review can not be empty!'],
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now(),
+      // use 'pre' middleware to set this key equal to the Date.now()?
+    },
+    tour: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'Tour',
+      required: [true, 'Review must belong to a tour.'],
+    },
+    user: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'User',
+      required: [true, 'Review must belong to a user.'],
+    },
   },
-  content: {
-    type: String,
-  },
-  createdAt: {
-    type: Date,
-    // use 'pre' middleware to set this key equal to the Date.now()?
-  },
-});
-
-reviewSchema.pre('save', function (next) {
-  this.createdAt = Date.now();
-  next();
-});
+  {
+    // Allow virtual properties when model is ouput to JSON or Object
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  }
+);
 
 const Review = mongoose.model('Review', reviewSchema);
 
