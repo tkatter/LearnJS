@@ -24,6 +24,7 @@ const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
+const reviewRouter = require('./routes/reviewRoutes');
 const sanitizeRequest = require('./utils/xssMiddleware');
 
 // Core Variables
@@ -89,6 +90,7 @@ app.delete('/api/v1/tours/:id', deleteTour);
 */
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/reviews', reviewRouter);
 
 // MIDDLEWARE AFTER REQUEST WAS NOT REACHED BY OUR ROUTERS
 /* OG simple error middleware for uncaught url

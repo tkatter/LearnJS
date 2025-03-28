@@ -19,7 +19,6 @@ const reviewSchema = new mongoose.Schema(
     createdAt: {
       type: Date,
       default: Date.now(),
-      // use 'pre' middleware to set this key equal to the Date.now()?
     },
     tour: {
       type: mongoose.Schema.ObjectId,
@@ -38,6 +37,21 @@ const reviewSchema = new mongoose.Schema(
     toObject: { virtuals: true },
   }
 );
+
+// DOCUMENT MIDDLEWARE
+
+// QUERY MIDDLEWARE
+reviewSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'user',
+    select: '-__v -passwordChangedAt -role',
+  });
+  this.populate({
+    path: 'tour',
+    select: 'name',
+  });
+  next();
+});
 
 const Review = mongoose.model('Review', reviewSchema);
 
