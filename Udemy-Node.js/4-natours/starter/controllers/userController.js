@@ -27,6 +27,7 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
   });
 });
 
+// For user use.
 exports.updateMe = catchAsync(async (req, res, next) => {
   // 1) Send error if user tries POSTing password data
   if (req.body.password || req.body.passwordConfirm) {
@@ -53,7 +54,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     },
   });
 });
-
+// For user use.
 exports.deleteMe = catchAsync(async (req, res, next) => {
   await User.findByIdAndUpdate(req.user._id, { active: false });
 
@@ -63,22 +64,12 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.getUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'this route is not yet defined',
-  });
-};
-exports.createUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'this route is not yet defined',
-  });
-};
-exports.updateUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'this route is not yet defined',
-  });
-};
-exports.deleteUser = factory.DeleteOne(User);
+// Get a specific user.
+exports.getUser = factory.getOne(User);
+
+// For admin use only. Do not update passwords with this.
+exports.updateUser = factory.updateOne(User);
+// For admin use only.
+exports.deleteUser = factory.deleteOne(User);
+// For admin use only.
+exports.createUser = factory.createOne(User);

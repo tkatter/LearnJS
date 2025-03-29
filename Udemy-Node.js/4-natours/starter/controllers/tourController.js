@@ -144,7 +144,7 @@ exports.updateTour = factory.updateOne(Tour);
 //   });
 // });
 
-exports.deleteTour = factory.DeleteOne(Tour);
+exports.deleteTour = factory.deleteOne(Tour);
 
 // exports.deleteTour = catchAsync(async (req, res, next) => {
 //   const tour = await Tour.findByIdAndDelete(req.params.id);
@@ -159,6 +159,7 @@ exports.deleteTour = factory.DeleteOne(Tour);
 //   });
 // });
 
+// AGGREGATION
 exports.getTourStats = catchAsync(async (req, res, next) => {
   const stats = await Tour.aggregate([
     {
