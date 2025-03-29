@@ -41,9 +41,14 @@ exports.createOne = Model =>
     });
   });
 
-exports.getOne = Model =>
+exports.getOne = (Model, popOptions) =>
   catchAsync(async (req, res, next) => {
-    const doc = await Model.findById(req.params.id);
+    let query = Model.findById(req.params.id);
+
+    // If the popOptions parameter is passed through, then add the populate method to the query
+    if (popOptions) query = query.populate(popOptions);
+
+    const doc = await query;
 
     if (!doc) {
       return next(new AppError('No document found with that ID', 404));

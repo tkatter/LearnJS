@@ -64,12 +64,11 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
   });
 });
 
-// Get a specific user.
+// For admin use only. Get a specific user.
 exports.getUser = factory.getOne(User);
-
 // For admin use only. Do not update passwords with this.
 exports.updateUser = factory.updateOne(User);
-// For admin use only.
+// For admin use only. Delete a user from the database.
 exports.deleteUser = factory.deleteOne(User);
-// For admin use only.
+// For admin use only. Create a user **does not automatically login as created user
 exports.createUser = factory.createOne(User);
