@@ -39,9 +39,10 @@ const reviewSchema = new mongoose.Schema(
   }
 );
 
-// DOCUMENT MIDDLEWARE
+// Indexes
+reviewSchema.index({ tour: 1, user: 1 }, { unique: true });
 
-// QUERY MIDDLEWARE
+// Populate
 reviewSchema.pre(/^find/, function (next) {
   this.populate({
     path: 'user',
@@ -82,10 +83,12 @@ reviewSchema.statics.calcAverageRatings = async function (tourId) {
   }
 };
 
+// Document Middleware
 reviewSchema.post('save', async function () {
   await this.constructor.calcAverageRatings(this.tour);
 });
 
+// Query Middleware
 reviewSchema.pre(/^findOneAnd/, async function (next) {
   this.r = await this.clone().findOne();
   next();
