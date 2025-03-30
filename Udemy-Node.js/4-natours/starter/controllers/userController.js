@@ -27,6 +27,12 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
   });
 });
 
+// For user use. Middleware to avoid passing in the user ID as a url parameter
+exports.getMe = (req, res, next) => {
+  req.params.id = req.user.id;
+  next();
+};
+
 // For user use.
 exports.updateMe = catchAsync(async (req, res, next) => {
   // 1) Send error if user tries POSTing password data
