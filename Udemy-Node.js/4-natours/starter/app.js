@@ -18,6 +18,9 @@ const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const hpp = require('hpp');
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yaml');
+const fs = require('fs');
 
 // USER MODULES
 const AppError = require('./utils/appError');
@@ -25,7 +28,11 @@ const globalErrorHandler = require('./controllers/errorController');
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
-const sanitizeRequest = require('./utils/xssMiddleware');
+// const sanitizeRequest = require('./utils/xssMiddleware');
+
+// SWAGGER API Documentation
+const swaggerFile = fs.readFileSync('./API/index.yaml', 'utf-8');
+const swaggerDocument = YAML.parse(swaggerFile);
 
 // Core Variables
 const app = express();
@@ -88,6 +95,7 @@ app.post('/api/v1/tours', createTour);
 app.patch('/api/v1/tours/:id', updateTour);
 app.delete('/api/v1/tours/:id', deleteTour);
 */
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/reviews', reviewRouter);
