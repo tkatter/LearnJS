@@ -15,25 +15,12 @@ const filterObj = (obj, ...allowedFields) => {
   return newObj;
 };
 
-exports.getAllUsers = catchAsync(async (req, res, next) => {
-  const users = await User.find();
-
-  res.status(200).json({
-    status: 'success',
-    results: users.length,
-    data: {
-      users: users,
-    },
-  });
-});
-
-// For user use. Middleware to avoid passing in the user ID as a url parameter
+// Middleware to avoid passing in the user ID as a url parameter
 exports.getMe = (req, res, next) => {
   req.params.id = req.user.id;
   next();
 };
 
-// For user use.
 exports.updateMe = catchAsync(async (req, res, next) => {
   // 1) Send error if user tries POSTing password data
   if (req.body.password || req.body.passwordConfirm) {
@@ -60,7 +47,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     },
   });
 });
-// For user use.
+
 exports.deleteMe = catchAsync(async (req, res, next) => {
   await User.findByIdAndUpdate(req.user._id, { active: false });
 
@@ -70,11 +57,11 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
   });
 });
 
-// For admin use only. Get a specific user.
+exports.getAllUsers = factory.getAll(User);
 exports.getUser = factory.getOne(User);
-// For admin use only. Do not update passwords with this.
+// Do not update passwords with this.
 exports.updateUser = factory.updateOne(User);
-// For admin use only. Delete a user from the database.
+// Delete a user from the database.
 exports.deleteUser = factory.deleteOne(User);
-// For admin use only. Create a user **does not automatically login as created user
+// Create a user **does not automatically login as created user
 exports.createUser = factory.createOne(User);
