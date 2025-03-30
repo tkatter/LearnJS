@@ -4,13 +4,13 @@ const authController = require('./../controllers/authController');
 
 const router = express.Router({ mergeParams: true });
 
+router.use(authController.protect);
+
 router
   .route('/')
   // Route for getting all reviews and getting reviews for specific tour from tourRoutes
-  .get(authController.protect, reviewController.getAllReviews)
-  // Route for creating a review - restricted to only logged in users with role: user
+  .get(reviewController.getAllReviews)
   .post(
-    authController.protect,
     authController.restrictTo('user'),
     reviewController.setTourUserIds,
     reviewController.createReview
@@ -18,18 +18,12 @@ router
 
 router
   .route('/:id')
-  .get(
-    authController.protect,
-    authController.restrictTo('admin'),
-    reviewController.getReview
-  )
+  .get(authController.restrictTo('admin'), reviewController.getReview)
   .patch(
-    authController.protect,
-    authController.restrictTo('user'),
+    authController.restrictTo('admin', 'user'),
     reviewController.updateReview
   )
   .delete(
-    authController.protect,
     authController.restrictTo('admin', 'user'),
     reviewController.deleteReview
   );
