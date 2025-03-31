@@ -21,6 +21,7 @@ const hpp = require('hpp');
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yaml');
 const fs = require('fs');
+const cors = require('cors');
 
 // USER MODULES
 const AppError = require('./utils/appError');
@@ -38,6 +39,9 @@ const swaggerDocument = YAML.parse(swaggerFile);
 const app = express();
 
 // GLOBAL MIDDLEWARES
+// CORS for Cross-Origin Resource Sharing
+app.use(cors());
+
 // Security HTTP headers
 app.use(helmet());
 
