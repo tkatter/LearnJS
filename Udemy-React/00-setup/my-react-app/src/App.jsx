@@ -6,7 +6,6 @@ function App() {
     <div className="container">
       <Header />
       <Menu />
-      <Order />
       <Footer />
     </div>
   );
@@ -20,26 +19,30 @@ function Header() {
   );
 }
 
-function Order() {
-  return (
-    <div className="order">
-      <button className="btn">Order Here!!</button>
-    </div>
-  );
-}
-
 function Footer() {
   const hour = new Date().getHours();
   const openHour = 12;
   const closedHour = 22;
   const isOpen = hour >= openHour && hour <= closedHour;
-  let openStatus;
-  if (isOpen) {
-    openStatus = `We're currently open!`;
-  } else {
-    openStatus = `Sorry we're closed!`;
-  }
-  return <footer className="footer">{openStatus}</footer>;
+  return (
+    <footer className="footer">
+      {isOpen ? (
+        <Order closedHour={closedHour} />
+      ) : (
+        <p>
+          We're happy to serve you between {openHour}:00 and {closedHour}:00 :)
+        </p>
+      )}
+    </footer>
+  );
 }
 
+function Order({ closedHour }) {
+  return (
+    <div className="order">
+      <p>We're open until {closedHour}:00. Come visit us or order online.</p>
+      <button className="btn">Order Here!!</button>
+    </div>
+  );
+}
 export default App;
