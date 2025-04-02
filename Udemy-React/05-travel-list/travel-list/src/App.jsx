@@ -21,10 +21,12 @@ export default function App() {
   );
 }
 
+// Header Component
 function Logo() {
   return <h1>🏝️Far Away🧳</h1>;
 }
 
+// Form Component
 function Form() {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
@@ -65,6 +67,7 @@ function Form() {
   );
 }
 
+// Packing List Component
 function PackingList() {
   initialItems;
   return (
@@ -78,6 +81,7 @@ function PackingList() {
   );
 }
 
+// Item Component
 function Item({ item }) {
   return (
     <li>
@@ -89,6 +93,7 @@ function Item({ item }) {
   );
 }
 
+// Stats Footer Component
 function Stats() {
   return (
     <footer className="stats">
