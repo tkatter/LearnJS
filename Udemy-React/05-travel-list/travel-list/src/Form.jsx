@@ -1,7 +1,7 @@
 // Form Component
 import { useState } from "react";
 
-export const Form = function ({ onAddItems }) {
+export default function Form({ onAddItems }) {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -40,4 +40,4 @@ export const Form = function ({ onAddItems }) {
       <button>Add</button>
     </form>
   );
-};
+}

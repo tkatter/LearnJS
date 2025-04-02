@@ -1,7 +1,13 @@
 import { useState } from "react";
+import Item from "./Item";
 
 // Packing List Component
-export const PackingList = function ({ items, onDeleteItem, onUpdateItem }) {
+export default function PackingList({
+  items,
+  onDeleteItem,
+  onUpdateItem,
+  onClearList,
+}) {
   const [sortBy, setSortBy] = useState("input");
 
   let sortedItems;
@@ -35,27 +41,8 @@ export const PackingList = function ({ items, onDeleteItem, onUpdateItem }) {
           <option value="description">Sort by description</option>
           <option value="packed">Sort by packed status</option>
         </select>
+        <button onClick={onClearList}>Clear List</button>
       </div>
     </div>
-  );
-};
-
-// Item Component
-function Item({ item, onDeleteItem, onUpdateItem }) {
-  // function handleClick() {}
-
-  return (
-    <li>
-      <input
-        type="checkbox"
-        value={item.packed}
-        onChange={() => onUpdateItem(item.id)}
-      />
-      <span style={item.packed ? { textDecoration: "line-through" } : {}}>
-        {item.description} {item.quantity}
-      </span>
-      {/* <button onClick={}>❌</button> */}
-      <button onClick={() => onDeleteItem(item.id)}>❌</button>
-    </li>
   );
 }

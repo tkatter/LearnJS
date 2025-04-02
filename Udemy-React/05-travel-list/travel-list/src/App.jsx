@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Form } from "./Form";
-import { PackingList } from "./PackingList";
+import Form from "./Form";
+import PackingList from "./PackingList";
 // import './App.css'
 
 // const initialItems = [
@@ -20,6 +20,14 @@ export default function App() {
     setItems((items) => items.filter((item) => item.id !== id));
   }
 
+  function handleClearList() {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete all items?"
+    );
+
+    if (confirmed) setItems([]);
+  }
+
   function toggleItem(id) {
     setItems((items) =>
       items.map((item) =>
@@ -36,6 +44,7 @@ export default function App() {
         items={items}
         onDeleteItem={handleDeleteItem}
         onUpdateItem={toggleItem}
+        onClearList={handleClearList}
       />
       <Stats items={items} />
     </div>
