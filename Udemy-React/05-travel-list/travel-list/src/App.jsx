@@ -1,22 +1,43 @@
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
+import { useState } from "react";
+import { Form } from "./Form";
+import { PackingList } from "./PackingList";
 // import './App.css'
 
-import { useState } from "react";
-
-const initialItems = [
-  { id: 1, description: "Passports", quantity: 2, packed: false },
-  { id: 2, description: "Socks", quantity: 12, packed: false },
-  { id: 3, description: "Undies", quantity: 12, packed: true },
-];
+// const initialItems = [
+//   { id: 1, description: "Passports", quantity: 2, packed: false },
+//   { id: 2, description: "Socks", quantity: 12, packed: false },
+//   { id: 3, description: "Undies", quantity: 12, packed: true },
+// ];
 
 export default function App() {
+  const [items, setItems] = useState([]);
+
+  function handleAddItem(item) {
+    setItems((items) => [...items, item]);
+  }
+
+  function handleDeleteItem(id) {
+    setItems((items) => items.filter((item) => item.id !== id));
+  }
+
+  function toggleItem(id) {
+    setItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item
+      )
+    );
+  }
+
   return (
     <div className="app">
       <Logo />
-      <Form />
-      <PackingList />
-      <Stats />
+      <Form onAddItems={handleAddItem} />
+      <PackingList
+        items={items}
+        onDeleteItem={handleDeleteItem}
+        onUpdateItem={toggleItem}
+      />
+      <Stats items={items} />
     </div>
   );
 }
@@ -26,78 +47,28 @@ function Logo() {
   return <h1>🏝️Far Away🧳</h1>;
 }
 
-// Form Component
-function Form() {
-  const [description, setDescription] = useState("");
-  const [quantity, setQuantity] = useState(1);
-
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    if (!description) return;
-
-    const newItem = { description, quantity, packed: false, id: Date.now() };
-    console.log(newItem);
-
-    setDescription("");
-    setQuantity(1);
-  }
-
-  return (
-    <form className="add-form" onSubmit={handleSubmit}>
-      <h3>What do you need for your trip?</h3>
-      <select
-        value={quantity}
-        onChange={(e) => setQuantity(Number(e.target.value))}
-      >
-        {Array.from({ length: 20 }, (_, i) => i + 1).map((el) => (
-          <option value={el} key={el}>
-            {el}
-          </option>
-        ))}
-      </select>
-      <input
-        type="text"
-        placeholder="Item..."
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <button>Add</button>
-    </form>
-  );
-}
-
-// Packing List Component
-function PackingList() {
-  initialItems;
-  return (
-    <div className="list">
-      <ul>
-        {initialItems.map((item) => (
-          <Item item={item} key={item.id} />
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-// Item Component
-function Item({ item }) {
-  return (
-    <li>
-      <span style={item.packed ? { textDecoration: "line-through" } : {}}>
-        {item.description} {item.quantity}
-      </span>
-      <button>❌</button>
-    </li>
-  );
-}
-
 // Stats Footer Component
-function Stats() {
+function Stats({ items }) {
+  // Early Return
+  if (!items.length)
+    return (
+      <footer className="stats">
+        <em>Start adding items to your packing list!</em>
+      </footer>
+    );
+
+  const numItems = items.length;
+  const numPackedItems = items.filter((item) => item.packed).length;
+  const percentPacked = Math.round((numPackedItems / items.length) * 100);
+
   return (
     <footer className="stats">
-      💼 <em>You have X items on your list. You have already packed X (X%)</em>
+      <em>
+        💼
+        {percentPacked === 100
+          ? `You're all packed! `
+          : `You have ${numItems} items on your list. You have already packed ${numPackedItems} (${percentPacked}%)`}
+      </em>
     </footer>
   );
 }
