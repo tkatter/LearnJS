@@ -15,6 +15,13 @@ body {
   margin: 100px auto;
 }
 
+.step-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .numbers {
   display: flex;
   justify-content: space-between;
@@ -24,7 +31,7 @@ body {
   height: 40px;
   aspect-ratio: 1;
   background-color: #e7e7e7;
-  border-radius: 50%;
+  border-radius: 25%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,7 +83,7 @@ h3 {
 }
 
 .close {
-  position: absolute;
+  /* position: absolute; */
   top: 16px;
   right: 16px;
   border: none;
